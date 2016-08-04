@@ -31,11 +31,11 @@
 
 int main(void)
 {
-	rtc_init();
+    rtc_init();
 
-	puts("= STM32 Low Power mode test =");
+    puts("= STM32 Low Power mode test =");
 
-	/* Setup RTC alarm time to wake up on */
+    /* Setup RTC alarm time to wake up on */
     struct tm time;
     rtc_get_time(&time);
     time.tm_sec  += SLEEP_TIME_SEC;
@@ -43,13 +43,13 @@ int main(void)
 
     puts("Entering LPM...");
 
-	/* Enter low power mode */
-	lpm_set(LPM_SLEEP);
+    /* Enter low power mode */
+    lpm_set(LPM_SLEEP);
 
-	/* This code is supposed to execute after wake-up on RTC alarm */
-	puts("Normally running");
+    /* This code is supposed to execute after wake-up on RTC alarm */
+    puts("Normally running");
 
-	while(1);
+    while (1) ;
 
     return 0;
 }

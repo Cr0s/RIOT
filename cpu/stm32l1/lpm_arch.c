@@ -46,10 +46,10 @@ enum lpm_mode lpm_arch_set(enum lpm_mode target)
             break;
 
         case LPM_SLEEP:;             /* Sleep mode */
-        	uint32_t tmpreg = PWR->CR;
+            uint32_t tmpreg = PWR->CR;
 
-            tmpreg &= CR_DS_MASK; 	 /* Clear PDDS and LPDSR bits */
-            tmpreg |= PWR_CR_LPSDSR; /* Set voltage regulator into low power mode */
+            tmpreg &= CR_DS_MASK;       /* Clear PDDS and LPDSR bits */
+            tmpreg |= PWR_CR_LPSDSR;    /* Set voltage regulator into low power mode */
 
             PWR->CR = tmpreg;
 
